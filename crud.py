@@ -1,7 +1,18 @@
 #!/usr/bin/python
 # by v0id
 
-###################################################
+# -*- coding: utf-8 -*-
+
+"""
+  _____                _           ______      _   _                 
+ /  __ \              | |          | ___ \    | | | |                
+ | /  \/_ __ _   _  __| |  ______  | |_/ /   _| |_| |__   ___  _ __  
+ | |   | '__| | | |/ _` | |______| |  __/ | | | __| '_ \ / _ \| '_ \ 
+ | \__/\ |  | |_| | (_| |          | |  | |_| | |_| | | | (_) | | | |
+  \____/_|   \__,_|\__,_|          \_|   \__, |\__|_| |_|\___/|_| |_|
+                                          __/ |                 
+                                         |___/      
+"""
 
 import os
 import re
@@ -58,8 +69,6 @@ def insert():
 
  conn.commit()
 
- print "records created successfully\n"
-
 ###############################################
 
 def update():
@@ -81,8 +90,9 @@ def listView():
   print "email: ",row[2]
   print "age  : ",row[3],"\n"
  print "+------------------------+"
- print "operation done sucessfully"
+ 
  conn.close()
+
 ############################################
 
 def createTable():
@@ -91,7 +101,6 @@ def createTable():
 		 NAME  TEXT             NOT NULL,
 		 EMAIL TEXT             NOT NULL,
 		 AGE   INT              NOT NULL);''')
- print "table created successfully"
 
 ##########################################
 
