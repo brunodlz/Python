@@ -1,2 +1,2 @@
 # python
-Simple Crud
+my codes in python
