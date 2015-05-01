@@ -72,7 +72,7 @@ def insert():
 ###############################################
 
 def update():
- name = raw_input("qual nome trocar: ")
+ name = raw_input("which name change: ")
  alterName = raw_input("por: ")
 
  cursor.execute('UPDATE USERS SET NAME = ? WHERE NAME = ?',[alterName,name]);
@@ -82,7 +82,7 @@ def update():
 ##############################################
 
 def delete():
- id = raw_input("deletar por qual id: ")
+ id = raw_input("remove what ID user:")
 
  cursor.execute('DELETE FROM USERS WHERE ID = ?',id)
  conn.commit()
@@ -116,7 +116,7 @@ clear()
 print banner()
 createTable()
 
-op = int(raw_input("Option: "))
+op = int(raw_input("option: "))
 validate_option(op)
 
 while op!=0:
