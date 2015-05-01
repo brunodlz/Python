@@ -53,7 +53,7 @@ def validate_option(op):
 #################################################
 
 def exit():
- print "bye ... :( "
+ print "bye ... "
  time.sleep(2)
  conn.close()
  sys.exit()
@@ -66,18 +66,27 @@ def insert():
  age = int(raw_input("whats old age: "))
 
  cursor.execute('INSERT INTO USERS (NAME,EMAIL,AGE) VALUES (?,?,?)',(name,email,age));
-
  conn.commit()
+ print "Successfully"
 
 ###############################################
 
 def update():
- print "update now"
+ name = raw_input("qual nome trocar: ")
+ alterName = raw_input("por: ")
+
+ cursor.execute('UPDATE USERS SET NAME = ? WHERE NAME = ?',[alterName,name]);
+ conn.commit()
+ print "Sucessfully"
 
 ##############################################
 
 def delete():
- print "delete now"
+ id = raw_input("deletar por qual id: ")
+
+ cursor.execute('DELETE FROM USERS WHERE ID = ?',id)
+ conn.commit()
+ print "Successfully"
 
 #############################################
 
@@ -86,12 +95,11 @@ def listView():
  
  print "+------------------------+"
  for row in list:
+  print "id   : ",row[0]
   print "name : ",row[1]
   print "email: ",row[2]
   print "age  : ",row[3],"\n"
  print "+------------------------+"
- 
- conn.close()
 
 ############################################
 
@@ -106,23 +114,25 @@ def createTable():
 
 clear()
 print banner()
-
 createTable()
 
 op = int(raw_input("Option: "))
 validate_option(op)
 
 while op!=0:
- if op&1:
+ if op==1:
   insert()
- elif op&2:
-  update()
- elif op&3:
-  delete()
- elif op&4:
+  clear()
+  print banner()
+ elif op==2:
   listView()
-
- print banner()
+  update()
+ elif op==3:
+  listView()
+  delete()
+ elif op==4:
+  listView()
+ 
  op = int(raw_input("Option: "))
  validate_option(op)
  clear()
