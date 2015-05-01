@@ -1,4 +1,7 @@
 #!/usr/bin/python
+#by v0id
+
+# -*- coding: utf-8 -*-
 
 import sys
 import re
