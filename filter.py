@@ -1,16 +1,36 @@
 #!/usr/bin/python
-#by v0id
 
 # -*- coding: utf-8 -*-
+
+#linux: grep 'ba' < text.txt
 
 import sys
 import re
 
-pattern = sys.argv[1]
+banner = '''
++==========================+
+|   Just Another 'Filter'  |
++==========================+
+	  by v0id 
+'''
 
-regexp = re.compile(pattern)
+usage = '''
+	use: ./filter.py "ba" < text.txt
+        '''
 
-for line in sys.stdin:
- result = regexp.search(line)
- if result:
-  sys.stdout.write(line)
+print banner
+
+if len(sys.argv) <= 1:
+ print usage
+else :
+ pattern = sys.argv[1]
+ regexp = re.compile(pattern)
+ 
+ print "Found:\n"
+
+ for line in sys.stdin:
+  result = regexp.search(line)
+  if result:
+   sys.stdout.write(line)
+  
+ print "\n"
