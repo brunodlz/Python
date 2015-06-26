@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#by v0id
+#by bruno v0id
 
 #just another test with regex
 
